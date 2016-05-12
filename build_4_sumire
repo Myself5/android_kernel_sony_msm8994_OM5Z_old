@@ -8,6 +8,7 @@ export PATH=/media/myself5/AOSP/commit/aarch64-linux-android-4.9-kernel/bin/:$PA
 ### See prefix of file names in the toolchain's bin directory
 export CROSS_COMPILE=aarch64-linux-android-
 
+make clean
 make mm_sumire_defconfig
 make -j 12
 
