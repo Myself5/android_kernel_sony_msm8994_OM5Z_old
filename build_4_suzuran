@@ -4,6 +4,9 @@
 export USE_CCACHE=1
 
 export ARCH=arm64
+if [ -z ${JENKINS_BUILD+x} ]; then
+export JENKINS_BUILD=false
+fi
 if [ $JENKINS_BUILD != "true" ]; then
 export PATH=~/omni/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/:$PATH
 fi
