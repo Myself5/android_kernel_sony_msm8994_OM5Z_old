@@ -171,7 +171,13 @@ if test ! "$srctree" -ef .; then
 fi
 
 # CONFIG_LOCALVERSION and LOCALVERSION (if set)
-res="${res}${CONFIG_LOCALVERSION}${LOCALVERSION}"
+
+if [ -z ${OM5Z_VERSION+x} ]; then
+	res="${res}${CONFIG_LOCALVERSION}${LOCALVERSION}"
+else
+        OM5Z_VERSION="-V${OM5Z_VERSION}"
+        res="${res}${CONFIG_LOCALVERSION}${LOCALVERSION}${OM5Z_VERSION}"
+fi
 
 # scm version string if not at a tagged commit
 if test "$CONFIG_LOCALVERSION_AUTO" = "y"; then
