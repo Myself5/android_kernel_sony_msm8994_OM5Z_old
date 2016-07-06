@@ -2,8 +2,15 @@
 ### I'm using GCC
 
 export USE_CCACHE=1
+export DEVICE=$1
+
 
 export ARCH=arm64
+if [ -z $DEVICE ]; then
+export DEVICE=sumire
+fi
+
+echo "Building for $DEVICE"
 if [ -z ${JENKINS_BUILD+x} ]; then
 export JENKINS_BUILD=false
 fi
@@ -14,7 +21,7 @@ fi
 export CROSS_COMPILE=aarch64-linux-android-
 
 make clean
-make mm_sumire_defconfig
+make mm_$DEVICE_defconfig
 make -j 12
 
 echo "checking for compiled kernel..."
