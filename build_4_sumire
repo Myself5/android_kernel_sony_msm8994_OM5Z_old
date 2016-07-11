@@ -21,7 +21,7 @@ fi
 export CROSS_COMPILE=aarch64-linux-android-
 
 make clean
-make mm_$DEVICE_defconfig
+make mm_${DEVICE}_defconfig
 make -j 12
 
 echo "checking for compiled kernel..."
@@ -36,4 +36,4 @@ echo "checking for compiled kernel..."
 # echo "Gimme DTB"
 
 ### E6653
-../OM5Z_build_tools/bootimg mkimg --cmdline "androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 dwc3_msm.prop_chg_detect=Y coherent_pool=2M dwc3_msm.hvdcp_max_current=1500 enforcing=0" --base 0x00000000 --kernel arch/arm64/boot/Image.gz-dtb --ramdisk ../OM5Z_build_tools/ramdisk.E6653_OM5Z_CR_init_sony_224.cpio.gz --ramdisk_offset 0x02000000 --pagesize 4096 -o ../OM5Z_build_tools/boot_sumire_OM5Z_224.img --tags_offset 0x01E00000
+../OM5Z_build_tools/bootimg mkimg --cmdline "androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 dwc3_msm.prop_chg_detect=Y coherent_pool=2M dwc3_msm.hvdcp_max_current=1500 enforcing=0" --base 0x00000000 --kernel arch/arm64/boot/Image.gz-dtb --ramdisk ../OM5Z_build_tools/ramdisk.E6653_OM5Z_CR_init_sony_224.cpio.gz --ramdisk_offset 0x02000000 --pagesize 4096 -o ../OM5Z_build_tools/boot_${DEVICE}_OM5Z_224.img --tags_offset 0x01E00000
