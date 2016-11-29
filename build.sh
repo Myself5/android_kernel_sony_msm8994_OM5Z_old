@@ -4,7 +4,7 @@ set -e
 
 USE_CCACHE=1
 DEVICE=${1}
-TARGET_BUILD_NUMBER=253
+TARGET_BUILD_NUMBER=305
 BUILD_TOOLS="../OM5Z_build_tools"
 TIMESTAMP=`date +"%Y%m%d"`
 export ARCH=arm64
